@@ -31,11 +31,11 @@ if  lsusb -d "2e8a:000a" > /dev/null ; then
     sudo picotool reboot -f -u
 fi
 
-until lsusb -d 2e8a:0003; do
+until lsusb -d 2e8a:0003; do                        #Standard Mode VID:PID 
 echo "Waiting for Pico in BOOTSEL mode..."
 sleep 1
 done
 echo "Device Found!"
 sleep 1
              
-sudo picotool load -x rp2040-freertos.uf2
+sudo picotool load -x rp2040-freertos.uf2           #BOOTSEL Mode VID:PID

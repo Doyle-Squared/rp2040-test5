@@ -2,7 +2,7 @@
 
 Minimal FreeRTOS boilerplate for the Pico (Raspberry Pi Pico 2040) with a single blinky app. **Use the git clone command below**
 
-If you are using WSL or are building to a Wireless Pico, follow the steps at the end. Else, Ignore Steps 5-6
+If you are using WSL or are building to a Wireless Pico, follow the steps at the end. Else, Ignore Steps 6-7
 
 There are no instructions for plain Windows too. Only Mac, Linux and Windows Subsystem for Linux. 
 
@@ -40,6 +40,7 @@ git submodule update --init --recursive
 ```
 
 **Next is dowloading the Pico SDK** if you dont already have it. Navigate to your home directory, the one that says just `~/`
+
 Now enter these commands
 
 ```bash
@@ -52,7 +53,7 @@ export PICO_SDK_PATH="~/pico/pico-sdk"
 
 If your file explorer is empty, click on open folder  in VS Code and locate the folder with the repository name. Any other errors, consult the Internet for now.
 
-## 3. Build steps
+## 3. Build only steps
 
 From project root
 
@@ -65,7 +66,23 @@ Build artifact used for flashing:
 - `build/src/rp2040-freertos.uf2`
 
 
-## 4. Flash plus build steps
+## 4. Flash only steps
+
+From build/src/
+
+```bash
+#MacOS and Linux
+ sudo picotool load -x rp2040-freertos.uf2 -f
+
+#For WSL, just use or look at the flash shell script
+```
+
+Build artifact used for flashing:
+
+- `build/src/rp2040-freertos.uf2`
+
+
+## 5. Flash + build steps
 
 macOS/Linux: This is all you need to type to build in flash! Use `ctrl + c` if stuck or error occurs
 
@@ -85,7 +102,7 @@ rp2040-test5/
 └── README.md
 ```
 
-## 5. Using WSL on Windows (If on Linux/MacOS, then ignore)
+## 6. Using WSL on Windows (If on Linux/MacOS, then ignore)
 
 Open Powershell as administrator
 
@@ -125,7 +142,7 @@ and/or the VID of one of the devices should match that of the one when the Pico 
 ```text
 usbipd list
 usbipd bind --busid "bus_ID" --force
-``
+```
 
 Now you can run a new attach command that auto attaches the Pico to WSL
 ```text
@@ -142,7 +159,7 @@ If all worked smoothly, you should be able to now run the ./flash.sh command whe
 
 **NOTE:** You must run the usbipd auto attach command every time you close Powershell your powerdown your computer, but you dont need to launch PS in administrator mode anymore. You might have to run the command twice, once in BOOTSel, and another time in standard mode. Alternatively try and run the bind --force command again
 
-## 6. Using another rp2040 like the Pico W
+## 7. Using another rp2040 like the Pico W
 
 Navigate to the repo root's CMakeLists.txt file and uncomment the `set(PICO_BOARD pico_w)` line and comment out the other set command above
 
