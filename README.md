@@ -8,7 +8,7 @@ There are no instructions for plain Windows too. Only Mac, Linux and Windows Sub
 
 ## Why this is minimal (somewhat)
 
-- One app source file: `rp2040-freertos/src/main.c`
+- One app source file: `rp2040-test5/src/main.c`
 - Two board target choices: `pico` and `pico w`
 
 ## 1. System-level dependencies (machine setup)
@@ -39,7 +39,7 @@ git clone https://github.com/Doyle-Squared/rp2040-test5.git
 git submodule update --init --recursive
 ```
 
-Next is dowloading the Pico SDK if you dont already have it. Navigate to your home directory, the one that says just `~/`
+**Next is dowloading the Pico SDK** if you dont already have it. Navigate to your home directory, the one that says just `~/`
 Now enter these commands
 
 ```bash
@@ -67,7 +67,7 @@ Build artifact used for flashing:
 
 ## 4. Flash plus build steps
 
-macOS/Linux: (literally just this)
+macOS/Linux: This is all you need to type to build in flash! Use `ctrl + c` if stuck or error occurs
 
 ```bash
 ./flash.sh
