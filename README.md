@@ -76,7 +76,7 @@ macOS/Linux: (literally just this)
 ## Project structure
 
 ```text
-rp2040-freertos/
+rp2040-test5/
 ├── src/
 │   ├── CMakeLists.txt
 │   ├── FreeRTOSConfig.h
@@ -114,7 +114,7 @@ mkdir build && cd build/ && cmake .. && make && cd src/
 Then flash with
 
 ```bash
-sudo picotool load -x rp2040-freertos-template.uf2
+sudo picotool load -x rp2040-freertos.uf2
 ```
 
 After you flash, your Pico LED should be blinking
@@ -140,7 +140,7 @@ The addresses are found next to the "lsusb -d" commands and the first one is the
 
 If all worked smoothly, you should be able to now run the ./flash.sh command whenever you change the code and you want to build + flash. If not, consult your favorite online debugging tool through google
 
-**NOTE:** You must run the usbipd auto attach command every time you close Powershell your powerdown your computer, but you dont need to launch PS in administrator mode anymore. You might have to run the command twice, once in BOOTSel, and another time in standard mode, not too sure though.
+**NOTE:** You must run the usbipd auto attach command every time you close Powershell your powerdown your computer, but you dont need to launch PS in administrator mode anymore. You might have to run the command twice, once in BOOTSel, and another time in standard mode. Alternatively try and run the bind --force command again
 
 ## 6. Using another rp2040 like the Pico W
 
