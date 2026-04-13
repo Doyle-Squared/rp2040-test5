@@ -35,7 +35,7 @@ sudo apt install -y git cmake
 Cloning the repo and initilizing the submodules
 
 ```bash
-git clone https://github.com/Doyle-Squared/rp2040-freertos.git
+git clone https://github.com/Doyle-Squared/rp2040-test5.git
 git submodule update --init --recursive
 ```
 
