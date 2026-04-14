@@ -51,6 +51,21 @@ git submodule update --init
 export PICO_SDK_PATH="~/pico/pico-sdk"
 ```
 
+**If you are using WSL or Linux** we need to run some commands to get rid of picotool's sudo requirement
+```bash
+#Run this command
+sudo nano /etc/udev/rules.d/99-picotool.rules
+
+#Copy this into the gui that pops up. Hit `ctrl + s` and then `ctrl + x`
+SUBSYSTEM=="usb", ATTRS{idVendor}=="2e8a", MODE="0666"
+```
+
+Then run these commands to reload your pico. You may have to unplug and plug in your again
+```bash
+sudo udevadm control --reload-rules
+sudo udevadm trigger
+```
+
 If your file explorer is empty, click on open folder  in VS Code and locate the folder with the repository name. Any other errors, consult the Internet for now.
 
 ## 3. Build only steps
